@@ -1,0 +1,488 @@
+:root {
+  --paper: #f6f5ef;
+  --paper-deep: #eceee5;
+  --sage-0: #eef3eb;
+  --sage-1: #dfe9dc;
+  --sage-2: #cbd8c6;
+  --sage-3: #a9bba5;
+  --sage-4: #7f987d;
+  --ink: #304238;
+  --muted: #68776d;
+  --line: #cbd3c9;
+  --white: #fffef9;
+  --shadow: 0 22px 60px rgba(69, 87, 72, .10);
+  --radius: 28px;
+  --max: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 82% 3%, rgba(207, 221, 204, .45), transparent 29rem),
+    var(--paper);
+  font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+img { max-width: 100%; display: block; }
+
+.skip-link {
+  position: fixed; left: 16px; top: -80px; z-index: 99;
+  padding: 10px 16px; border-radius: 999px; background: var(--ink); color: white;
+}
+.skip-link:focus { top: 16px; }
+:focus-visible { outline: 3px solid rgba(76, 111, 79, .35); outline-offset: 4px; }
+
+.shell { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(14px);
+  background: rgba(246, 245, 239, .84);
+  border-bottom: 1px solid rgba(203, 211, 201, .6);
+}
+.nav-wrap { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.brand { font-family: Georgia, "Songti SC", serif; font-size: 21px; letter-spacing: .03em; }
+.nav { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; }
+.nav a { padding: 8px 12px; border-radius: 999px; }
+.nav a:hover, .nav a[aria-current="page"] { background: var(--sage-1); color: var(--ink); }
+
+.eyebrow { margin: 0 0 18px; color: var(--muted); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+.display {
+  margin: 0;
+  max-width: 780px;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: clamp(48px, 7vw, 92px);
+  font-weight: 400;
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+.display.medium { font-size: clamp(44px, 6vw, 76px); }
+.lead { max-width: 680px; margin: 26px 0 0; color: var(--muted); font-size: clamp(17px, 1.8vw, 20px); line-height: 1.9; }
+.section-title { margin: 0; font-family: Georgia, "Songti SC", serif; font-weight: 400; font-size: clamp(34px, 4vw, 54px); line-height: 1.12; }
+.section-note { max-width: 610px; margin: 14px 0 0; color: var(--muted); }
+.kicker { color: var(--sage-4); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 46px; padding: 0 20px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--white); transition: transform .2s ease, background .2s ease;
+}
+.button.primary { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.button:hover { transform: translateY(-2px); background: var(--sage-1); }
+.button.primary:hover { background: #496052; }
+
+/* Home: the quiet kitchen */
+.home-hero { padding: 56px 0 94px; }
+.hero-panel {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr);
+  min-height: 680px; overflow: hidden; border: 1px solid var(--line); border-radius: 36px;
+  background: rgba(255, 254, 249, .68); box-shadow: var(--shadow);
+}
+.hero-copy { padding: clamp(36px, 6vw, 74px); display: flex; flex-direction: column; justify-content: center; }
+.hero-copy .display { font-size: clamp(44px, 4.1vw, 60px); }
+.trait-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 30px; }
+.trait { padding: 7px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 13px; background: rgba(255,255,255,.54); }
+.kitchen-scene {
+  position: relative; min-height: 680px; overflow: hidden; padding: 18px 22px 74px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(150deg, var(--sage-0), var(--sage-1));
+  border-left: 1px solid var(--line);
+}
+.pixel-kitchen {
+  position: relative; width: min(100%, 540px); aspect-ratio: 4 / 5; overflow: hidden;
+  border: 3px solid #8c9e87; border-radius: 20px;
+  background:
+    linear-gradient(to bottom, transparent 0 67%, rgba(92, 101, 83, .18) 67% 68%, transparent 68%),
+    repeating-linear-gradient(to right, transparent 0 24.5%, rgba(112, 130, 107, .18) 24.5% 25%, transparent 25% 49.5%, rgba(112, 130, 107, .18) 49.5% 50%),
+    repeating-linear-gradient(to bottom, transparent 0 12.3%, rgba(112, 130, 107, .16) 12.3% 12.7%, transparent 12.7% 25%),
+    linear-gradient(to bottom, #dfe8d7 0 67%, #d4c3a7 67% 83%, #809077 83% 100%);
+  box-shadow: 0 18px 38px rgba(55, 70, 57, .13), inset 0 0 0 3px rgba(255, 254, 249, .42);
+  image-rendering: pixelated;
+}
+.pixel-kitchen::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 82.5%; height: 4px;
+  background: #5d6c59; box-shadow: 0 8px 0 rgba(255,255,255,.18); pointer-events: none;
+}
+.pixel-shelf {
+  position: absolute; z-index: 1; left: 4%; top: 33%; width: 52%; height: 2.2%;
+  background: #9d7048; border: 3px solid #624b38; box-shadow: 0 6px 0 rgba(63, 67, 53, .16);
+}
+.pixel-shelf::before, .pixel-shelf::after {
+  content: ""; position: absolute; top: 100%; width: 7%; height: 90%; background: #78583e; border: 2px solid #624b38;
+}
+.pixel-shelf::before { left: 12%; } .pixel-shelf::after { right: 12%; }
+.pixel-object {
+  position: absolute; z-index: 3; display: block; aspect-ratio: 1; border-radius: 12px;
+  transition: transform .16s steps(2, end), filter .16s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.pixel-object:hover, .pixel-object:focus-visible { transform: translateY(-5px); filter: drop-shadow(0 8px 0 rgba(48, 66, 56, .15)); }
+.pixel-object:focus-visible { outline: 4px solid rgba(65, 94, 68, .45); outline-offset: 2px; }
+.pixel-sprite {
+  position: absolute; inset: 0; background-image: url("pixel-kitchen-sprites.png");
+  background-repeat: no-repeat; background-size: 300% 200%; image-rendering: pixelated;
+}
+.sprite-jar-one { background-position: 0 0; }
+.sprite-jar-two { background-position: 50% 0; }
+.sprite-jar-three { background-position: 100% 0; }
+.sprite-knives { background-position: 0 100%; }
+.sprite-pot { background-position: 50% 100%; }
+.sprite-ingredients { background-position: 100% 100%; }
+.jar-one, .jar-two, .jar-three { top: 19.5%; width: 18%; }
+.jar-one { left: 1%; } .jar-two { left: 19%; } .jar-three { left: 37%; }
+.knife-rack { top: 3%; right: 1%; width: 39%; }
+.ingredients { left: 2%; top: 52%; width: 36%; }
+.simmer-pot { left: 48%; top: 44%; width: 46%; }
+.object-label {
+  position: absolute; z-index: 5; left: 50%; bottom: -3px; transform: translate(-50%, 100%);
+  width: max-content; max-width: 140px; padding: 4px 8px; border: 2px solid #8c9e87; border-radius: 7px;
+  background: rgba(255, 254, 249, .94); color: #3f5446; box-shadow: 3px 3px 0 rgba(92, 108, 89, .14);
+  font-size: 10px; font-weight: 700; line-height: 1.2; white-space: nowrap;
+}
+.knife-rack .object-label { bottom: 11%; }
+.ingredients .object-label, .simmer-pot .object-label { bottom: 3%; }
+.jar-one .object-label, .jar-two .object-label, .jar-three .object-label { top:-3px; bottom:auto; transform:translate(-50%,-100%); }
+.pixel-hint {
+  position: absolute; z-index: 5; left: 50%; bottom: 2.2%; transform: translateX(-50%); margin: 0;
+  width: max-content; max-width: 88%; padding: 5px 10px; border: 2px solid rgba(77, 96, 76, .35); border-radius: 8px;
+  color: #425547; background: rgba(246, 245, 239, .86); font-size: 10px; font-weight: 700; letter-spacing: .04em;
+}
+.shelf { position: absolute; left: 10%; right: 10%; top: 92px; height: 10px; border-radius: 10px; background: #8fa18b; }
+.shelf::after { content: ""; position: absolute; left: 5%; right: 5%; top: 14px; height: 1px; background: rgba(48,66,56,.18); }
+.jar-row { position: absolute; left: 12%; right: 12%; top: 24px; display: flex; align-items: flex-end; justify-content: space-around; }
+.mini-jar {
+  position: relative; width: 80px; height: 82px; padding: 30px 7px 7px;
+  display: grid; place-items: center; text-align: center; border: 2px solid #879b86; border-radius: 12px 12px 17px 17px;
+  background: rgba(255,255,255,.34); color: #536456; font-size: 11px; line-height: 1.35;
+}
+.mini-jar::before { content: ""; position: absolute; left: 10px; right: 10px; top: -8px; height: 10px; border: 2px solid #879b86; border-radius: 5px; background: var(--sage-2); }
+.pot { position: absolute; width: min(68%, 390px); height: 210px; left: 50%; bottom: 92px; transform: translateX(-50%); border: 3px solid #87928a; border-radius: 26px 26px 120px 120px; background: #d8d9d2; }
+.pot::before { content: ""; position: absolute; left: 8%; right: 8%; top: 20px; height: 76px; border-radius: 50%; background: var(--white); border: 1px solid #d9ded5; }
+.pot::after { content: ""; position: absolute; left: -58px; right: -58px; top: 26px; height: 19px; border: 3px solid #87928a; border-left-width: 12px; border-right-width: 12px; z-index: -1; }
+.steam { position: absolute; left: 50%; bottom: 332px; width: 8px; height: 96px; border-radius: 50%; border-left: 3px solid rgba(112,132,113,.45); filter: blur(.4px); animation: steam 3.6s ease-in-out infinite; }
+.steam.two { margin-left: 48px; height: 76px; animation-delay: -1.4s; }
+.steam.three { margin-left: -50px; height: 68px; animation-delay: -2.4s; }
+.scene-caption { position: absolute; left: 0; right: 0; bottom: 35px; text-align: center; color: var(--muted); font-size: 13px; }
+@keyframes steam { 0%,100% { transform: translateY(0) rotate(4deg); opacity: .35; } 50% { transform: translateY(-14px) rotate(-6deg); opacity: .8; } }
+
+.content-section { padding: 98px 0; }
+.content-section.compact { padding: 72px 0; }
+.section-head { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 38px; }
+.section-link { color: var(--muted); border-bottom: 1px solid var(--line); white-space: nowrap; }
+.metaphor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.metaphor-card { min-height: 250px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.48); }
+.metaphor-card:nth-child(2) { background: var(--sage-0); }
+.metaphor-card:nth-child(3) { background: var(--paper-deep); }
+.metaphor-icon { height: 100px; display: flex; align-items: end; gap: 7px; }
+.metaphor-card h3 { margin: 22px 0 5px; font-family: Georgia, "Songti SC", serif; font-size: 25px; font-weight: 400; }
+.metaphor-card p { margin: 0; color: var(--muted); font-size: 14px; }
+.tiny-bottle { width: 34px; border: 2px solid var(--sage-4); border-radius: 8px 8px 12px 12px; background: var(--sage-1); }
+.tiny-bottle:nth-child(1){height:58px}.tiny-bottle:nth-child(2){height:82px}.tiny-bottle:nth-child(3){height:70px}
+.ingredient-shape { width: 64px; height: 64px; border: 2px solid var(--sage-4); border-radius: 62% 38% 55% 45%; background: var(--sage-2); transform: rotate(16deg); }
+.pan-icon { width: 92px; height: 58px; border: 3px solid var(--sage-4); border-radius: 8px 8px 45px 45px; background: linear-gradient(#edf2ea,#cbd6c8); position: relative; box-shadow:inset 0 8px 0 rgba(255,255,255,.55); }
+.pan-icon::after { content:""; position:absolute; width:54px; height:8px; right:-50px; top:8px; border:2px solid var(--sage-4); border-radius:5px; }
+.pan-icon::before { content:""; position:absolute; left:18px; right:18px; top:-12px; height:11px; border:3px solid var(--sage-4); border-radius:50%; background:var(--white); }
+.knife-symbol { position:relative; display:inline-block; width:27px; height:78px; margin-right:10px; border:3px solid var(--sage-4); border-radius:5px 5px 14px 5px; background:linear-gradient(90deg,#f4f5ef,#cdd7ca); }
+.knife-symbol::after { content:""; position:absolute; width:19px; height:31px; left:1px; bottom:-31px; border:3px solid var(--sage-4); border-radius:0 0 8px 8px; background:#b5aa90; }
+.knife-symbol.short { height:62px; transform:translateY(16px); }
+
+.featured-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+.feature-card { position: relative; min-height: 330px; padding: 34px; overflow: hidden; border: 1px solid var(--line); border-radius: 30px; background: var(--sage-0); }
+.feature-card.large { grid-row: span 2; min-height: 678px; background: var(--sage-1); }
+.feature-card h3 { position: relative; z-index: 2; margin: 9px 0 10px; max-width: 430px; font-family: Georgia,"Songti SC",serif; font-size: clamp(27px,3vw,42px); font-weight: 400; line-height: 1.2; }
+.feature-card p { position: relative; z-index: 2; max-width: 450px; margin: 0; color: var(--muted); }
+.feature-card .arrow { position: absolute; right: 28px; bottom: 24px; width: 42px; height: 42px; display: grid; place-items:center; border:1px solid var(--line); border-radius:50%; background:rgba(255,255,255,.5); }
+.feature-card:hover .arrow { background: var(--white); transform: translate(2px,-2px); }
+.big-jar { position: absolute; width: 230px; height: 340px; right: 6%; bottom: -46px; border: 2px solid #829482; border-radius: 28px 28px 52px 52px; background: rgba(255,255,255,.24); transform: rotate(4deg); }
+.big-jar::before { content:""; position:absolute; left:30px; right:30px; top:-18px; height:26px; border:2px solid #829482; border-radius:8px; background:#b8c8b4; }
+.big-jar::after { content:"CREATIVE\A STRUCTURE\A PATENT"; white-space:pre; position:absolute; left:18px; right:18px; top:110px; padding:22px 10px; text-align:center; line-height:2; letter-spacing:.15em; font-size:11px; border:1px solid #94a691; background:var(--paper); }
+
+/* Page hero */
+.page-hero { padding: 70px 0 50px; }
+.page-hero .shell { display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:42px; align-items:center; }
+.page-hero .display.medium { max-width:900px; font-size:clamp(48px,5vw,64px); line-height:1.05; letter-spacing:-.035em; }
+.page-hero .lead { max-width:760px; margin-top:22px; line-height:1.78; }
+.page-index { justify-self:center; color:var(--muted); font-size:13px; }
+
+/* Spice rack / projects */
+.rack { padding: 28px 0 110px; }
+.rack-board { height: 18px; margin: 0 2% 30px; border-radius: 10px; background: #9eaa96; box-shadow: 0 10px 0 #d8dccf; }
+.bottle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: end; }
+.project-bottle {
+  position: relative; min-height: 470px; padding: 78px 26px 26px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  border: 2px solid var(--sage-3); border-radius: 32px 32px 56px 56px;
+  background:
+    radial-gradient(circle at 20% 17%, rgba(255,255,255,.88) 0 4px, transparent 5px),
+    linear-gradient(155deg, rgba(255,255,255,.78), rgba(216,229,211,.86));
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.project-bottle::before { content:""; position:absolute; left:23%; right:23%; top:-24px; height:42px; border:2px solid var(--sage-3); border-radius:10px 10px 5px 5px; background:#b7c7b2; }
+.project-bottle::after { content:""; position:absolute; left:9%; right:9%; bottom:8%; height:33%; border-radius:20px 20px 44px 44px; background:linear-gradient(180deg,rgba(150,170,145,.22),rgba(120,149,118,.48)); z-index:0; }
+.project-bottle:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.project-bottle:nth-child(2) { min-height: 520px; }
+.project-bottle:nth-child(3) { min-height: 440px; }
+.bottle-label { position:relative; z-index:1; min-height: 235px; padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: rgba(246,245,239,.94); box-shadow:0 8px 22px rgba(58,78,62,.08); }
+.bottle-label h2 { margin: 9px 0 10px; font-family:Georgia,"Songti SC",serif; font-weight:400; font-size:28px; line-height:1.25; }
+.bottle-label p { margin:0; color:var(--muted); font-size:14px; }
+.bottle-meta { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; font-size:12px; color:var(--muted); }
+.small-work-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:70px; }
+.small-work { padding:28px; border:1px solid var(--line); border-radius:24px; background:rgba(255,255,255,.46); }
+.small-work h3 { margin:8px 0; font-family:Georgia,"Songti SC",serif; font-size:25px; font-weight:400; }
+.small-work p { margin:0; color:var(--muted); }
+
+/* Experience */
+.prep-board { padding: 36px; border:1px solid #c7ccb9; border-radius:40px; background:#e8e6d8; box-shadow:var(--shadow); }
+.experience-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.ingredient-card { position:relative; min-height:360px; padding:31px; overflow:hidden; border:1px solid var(--line); border-radius:48px 24px 52px 28px; background:var(--sage-0); }
+.ingredient-card:nth-child(2) { border-radius:24px 52px 30px 58px; background:#dde5d7; }
+.ingredient-card:nth-child(3) { border-radius:58px 32px 48px 28px; background:#e7ebdf; }
+.ingredient-card::after { content:""; position:absolute; width:150px; height:150px; right:-55px; bottom:-55px; border:1px solid rgba(70,91,72,.2); border-radius:50%; }
+.produce-icon { position:absolute; right:24px; top:22px; width:72px; height:72px; opacity:.82; }
+.produce-icon.tomato { border:3px solid #718671; border-radius:50%; background:#c6d2b6; }
+.produce-icon.tomato::before { content:""; position:absolute; width:34px; height:18px; left:17px; top:-10px; background:#7f967c; clip-path:polygon(50% 0,61% 35%,100% 25%,72% 55%,88% 100%,50% 72%,12% 100%,28% 55%,0 25%,39% 35%); }
+.produce-icon.carrot { width:40px; height:74px; right:38px; border:3px solid #718671; background:#c7c6a8; border-radius:50% 50% 72% 72% / 18% 18% 82% 82%; transform:rotate(13deg); }
+.produce-icon.carrot::before { content:""; position:absolute; width:55px; height:35px; left:-6px; top:-24px; background:#879d82; clip-path:polygon(46% 100%,0 10%,37% 27%,50% 0,62% 28%,100% 12%,57% 100%); }
+.produce-icon.carrot::after { content:""; position:absolute; left:8px; right:8px; top:22px; height:3px; background:#9e9c82; box-shadow:2px 13px #9e9c82,4px 26px #9e9c82; transform:rotate(-8deg); opacity:.65; }
+.produce-icon.peas { width:82px; height:46px; top:35px; border:3px solid #718671; border-radius:70% 30% 70% 30%; background:#c4d0b4; transform:rotate(-10deg); }
+.produce-icon.peas::before { content:""; position:absolute; left:11px; top:9px; width:16px; height:16px; border-radius:50%; background:#8fa68a; box-shadow:20px 2px #8fa68a,40px 0 #8fa68a; }
+.ingredient-card h2 { margin:22px 0 9px; font-family:Georgia,"Songti SC",serif; font-weight:400; font-size:27px; line-height:1.3; }
+.ingredient-card p { color:var(--muted); }
+.ingredient-card ul { padding-left:18px; font-size:14px; color:#536359; }
+.period { font-size:12px; letter-spacing:.09em; color:var(--sage-4); }
+.cookware-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.cookware { min-height:270px; padding:34px; border:1px solid var(--line); border-radius:30px; background:rgba(255,255,255,.48); display:grid; grid-template-columns:120px 1fr; gap:30px; align-items:center; }
+.cookware .pan-icon { justify-self:center; }
+.cookware h3 { margin:5px 0; font-family:Georgia,"Songti SC",serif; font-weight:400; font-size:28px; }
+.cookware p { margin:0; color:var(--muted); }
+
+/* Education knives */
+.knife-page-hero .shell { align-items:center; }
+.wall-knife-set { position:relative; justify-self:end; width:300px; height:230px; padding:40px 38px 0; display:flex; justify-content:space-around; align-items:flex-start; border:1px solid var(--line); border-radius:28px; background:var(--sage-0); }
+.wall-knife-set::before { content:""; position:absolute; left:25px; right:25px; top:34px; height:12px; border-radius:999px; background:#8ea087; }
+.wall-knife-set i { position:relative; width:34px; height:112px; border:3px solid #66796a; border-radius:4px 4px 18px 5px; background:linear-gradient(90deg,#f5f5ef,#cad4c8); }
+.wall-knife-set i::after { content:""; position:absolute; left:4px; bottom:-55px; width:20px; height:51px; border:3px solid #66796a; border-radius:0 0 10px 10px; background:#afa289; }
+.wall-knife-set i:nth-child(2) { height:132px; }
+.wall-knife-set i:nth-child(3) { height:92px; }
+.knife-education-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+.education-knife-card { min-height:430px; padding:34px; display:grid; grid-template-columns:110px 1fr; gap:28px; align-items:center; border:1px solid var(--line); border-radius:30px; background:rgba(255,255,255,.48); }
+.education-knife-card h2 { margin:7px 0 0; font-family:Georgia,"Songti SC",serif; font-size:30px; font-weight:400; }
+.education-knife-card h3 { margin:3px 0 16px; color:var(--sage-4); font-size:16px; font-weight:500; }
+.education-knife-card p { color:var(--muted); }
+.knife-illustration { position:relative; justify-self:center; width:48px; height:210px; border:3px solid #66796a; border-radius:6px 6px 27px 8px; background:linear-gradient(90deg,#f8f7f1,#cbd5c9); box-shadow:inset 9px 0 rgba(255,255,255,.55); }
+.knife-illustration::after { content:""; position:absolute; left:8px; bottom:-94px; width:27px; height:90px; border:3px solid #66796a; border-radius:0 0 12px 12px; background:#afa289; }
+.knife-illustration.short { height:175px; width:55px; }
+
+/* Detail/back label */
+.detail-hero { padding: 78px 0 50px; }
+.back-link { display:inline-block; margin-bottom:44px; color:var(--muted); font-size:14px; }
+.detail-grid { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,.55fr); gap:80px; align-items:start; }
+.detail-aside { position:sticky; top:110px; padding:26px; border:1px solid var(--line); border-radius:24px; background:var(--sage-0); }
+.detail-aside dl { margin:0; }
+.detail-aside div { padding:13px 0; border-bottom:1px solid var(--line); }
+.detail-aside div:last-child { border:0; }
+.detail-aside dt { color:var(--muted); font-size:12px; }
+.detail-aside dd { margin:3px 0 0; }
+.detail-section { padding:42px 0; border-top:1px solid var(--line); }
+.detail-section h2 { margin:0 0 18px; font-family:Georgia,"Songti SC",serif; font-weight:400; font-size:34px; }
+.detail-section p { color:#526158; }
+.quote { margin:30px 0; padding:25px 28px; border-left:3px solid var(--sage-4); background:var(--sage-0); font-family:Georgia,"Songti SC",serif; font-size:23px; line-height:1.6; }
+.decision-table { width:100%; border-collapse:collapse; margin-top:22px; font-size:14px; }
+.decision-table th, .decision-table td { padding:16px 14px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
+.decision-table th { color:var(--muted); font-size:12px; font-weight:500; }
+.decision-table tr.recommended { background:var(--sage-0); }
+.process { display:grid; gap:14px; counter-reset:step; }
+.process-step { position:relative; padding:22px 22px 22px 72px; border:1px solid var(--line); border-radius:20px; background:rgba(255,255,255,.4); }
+.process-step::before { counter-increment:step; content:counter(step, decimal-leading-zero); position:absolute; left:22px; top:21px; color:var(--sage-4); font-family:Georgia,serif; }
+.process-step h3 { margin:0 0 4px; font-size:17px; }
+.process-step p { margin:0; font-size:14px; color:var(--muted); }
+
+/* About */
+.recipe-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+.recipe-step { padding:24px 19px; border:1px solid var(--line); border-radius:90px 90px 24px 24px; background:var(--sage-0); text-align:center; }
+.recipe-step span { display:grid; place-items:center; width:42px; height:42px; margin:0 auto 16px; border-radius:50%; background:var(--white); font-family:Georgia,serif; color:var(--sage-4); }
+.recipe-step h3 { margin:0; font-size:16px; }
+.recipe-step p { margin:8px 0 0; color:var(--muted); font-size:13px; }
+.drawer { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.drawer-card { padding:28px; border:1px solid var(--line); border-radius:24px; background:rgba(255,255,255,.45); }
+.drawer-card h3 { margin:0 0 12px; font-family:Georgia,"Songti SC",serif; font-weight:400; font-size:25px; }
+.chip-row { display:flex; flex-wrap:wrap; gap:8px; }
+.chip { padding:7px 12px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:13px; background:var(--sage-0); }
+
+.site-footer { padding:45px 0 52px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+.footer-row { display:flex; justify-content:space-between; gap:30px; }
+.reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity:1; transform:none; }
+
+@media (max-width: 920px) {
+  .hero-panel { grid-template-columns:1fr; }
+  .kitchen-scene { min-height:540px; border-left:0; border-top:1px solid var(--line); }
+  .featured-grid { grid-template-columns:1fr; }
+  .feature-card.large { grid-row:auto; min-height:520px; }
+  .bottle-grid, .experience-grid { grid-template-columns:1fr 1fr; }
+  .project-bottle:nth-child(n) { min-height:450px; }
+  .metaphor-grid { grid-template-columns:1fr; }
+  .detail-grid { grid-template-columns:1fr; gap:30px; }
+  .detail-aside { position:static; }
+  .recipe-grid { grid-template-columns:repeat(3,1fr); }
+  .knife-education-grid { grid-template-columns:1fr; }
+}
+
+@media (max-width: 640px) {
+  .shell { width:min(calc(100% - 28px), var(--max)); }
+  .nav-wrap { min-height:66px; align-items:flex-start; padding:14px 0; }
+  .nav { gap:0; flex-wrap:wrap; justify-content:flex-end; }
+  .nav a { padding:5px 8px; font-size:12px; }
+  .home-hero { padding:22px 0 60px; }
+  .hero-panel { border-radius:28px; }
+  .hero-copy { padding:40px 28px 48px; }
+  .hero-copy .display, .display { font-size:44px; line-height:1.04; }
+  .lead { font-size:16px; }
+  .kitchen-scene { min-height:560px; padding:8px 8px 70px; }
+  .pixel-kitchen { border-width:2px; border-radius:16px; }
+  .object-label { padding:3px 4px; border-width:1px; border-radius:5px; font-size:8px; box-shadow:2px 2px 0 rgba(92,108,89,.14); }
+  .pixel-hint { padding:4px 7px; border-width:1px; font-size:8px; }
+  .kitchen-art { max-height:540px; }
+  .mini-jar { width:66px; height:76px; font-size:10px; }
+  .pot { width:70%; height:170px; bottom:80px; }
+  .pot::before { height:60px; }
+  .steam { bottom:278px; }
+  .content-section { padding:68px 0; }
+  .section-head { align-items:start; flex-direction:column; gap:12px; }
+  .featured-grid, .bottle-grid, .experience-grid, .cookware-grid, .small-work-grid, .drawer { grid-template-columns:1fr; }
+  .feature-card, .feature-card.large { min-height:390px; padding:26px; }
+  .big-jar { width:170px; height:270px; opacity:.7; }
+  .page-hero { padding:62px 0 42px; }
+  .page-hero .shell { grid-template-columns:1fr; gap:20px; }
+  .page-index { justify-self:start; }
+  .project-bottle:nth-child(n) { min-height:410px; }
+  .prep-board { padding:16px; border-radius:28px; }
+  .ingredient-card { min-height:330px; }
+  .cookware { grid-template-columns:1fr; text-align:center; }
+  .wall-knife-set { justify-self:start; width:100%; max-width:340px; }
+  .education-knife-card { grid-template-columns:80px 1fr; min-height:390px; padding:26px; }
+  .knife-illustration { transform:scale(.82); }
+  .detail-hero { padding:48px 0 36px; }
+  .detail-grid { gap:20px; }
+  .decision-table { display:block; overflow-x:auto; }
+  .recipe-grid { grid-template-columns:1fr; }
+  .recipe-step { border-radius:22px; text-align:left; display:grid; grid-template-columns:48px 1fr; column-gap:14px; }
+  .recipe-step span { grid-row:1 / 3; margin:0; }
+  .recipe-step p { margin-top:3px; }
+  .footer-row { flex-direction:column; gap:8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .reveal { opacity:1; transform:none; }
+}
+
+/* Pixel system: calm editorial layout with interactive game-like markers */
+:root { --pixel-edge:#6b7d68; --pixel-edge-soft:#8fa08b; --pixel-shadow:rgba(81,101,82,.18); }
+.button, .trait, .chip, .nav a { border-radius:8px; }
+.button, .trait, .chip { box-shadow:3px 3px 0 var(--pixel-shadow); }
+.button:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--pixel-shadow); }
+.metaphor-card, .feature-card, .small-work, .ingredient-card, .education-knife-card, .drawer-card, .detail-aside, .process-step { border-width:2px; border-color:var(--pixel-edge-soft); border-radius:14px; box-shadow:7px 7px 0 var(--pixel-shadow); }
+
+.pixel-metaphor { height:90px; width:100%; align-items:initial; background-image:url("pixel-kitchen-sprites.png"); background-repeat:no-repeat; image-rendering:pixelated; }
+.pixel-metaphor-jars { height:72px; background-size:216px 144px; background-position:0 0; }
+.pixel-metaphor-ingredients { width:112px; background-size:300% 200%; background-position:100% 100%; }
+.pixel-metaphor-knives { width:125px; background-size:300% 200%; background-position:0 100%; }
+.metaphor-card h3 { margin-top:16px; }
+
+.featured-grid { grid-template-columns:repeat(3,1fr); }
+.feature-card, .feature-card.large { min-height:330px; padding:30px; }
+.feature-card.large { grid-row:auto; }
+.feature-card { background-image:linear-gradient(135deg,rgba(255,255,255,.25),transparent 55%); }
+.feature-kicker { position:relative; z-index:2; display:inline-flex; align-items:center; gap:7px; }
+.mini-spice-icon { flex:0 0 auto; width:28px; height:28px; background-repeat:no-repeat; background-size:contain; background-position:center; image-rendering:pixelated; }
+.mini-spice-one { background-image:url("spice-jar-beige.png?v=2"); }
+.mini-spice-two { background-image:url("spice-jar-green.png?v=2"); }
+.mini-spice-three { background-image:url("spice-jar-red.png?v=2"); }
+.feature-card .arrow { z-index:3; border-width:2px; border-radius:7px; box-shadow:3px 3px 0 var(--pixel-shadow); }
+
+.pixel-page-index { position:relative; min-width:200px; min-height:154px; padding:100px 14px 14px; border:2px solid var(--pixel-edge-soft); border-radius:12px; background:rgba(238,243,235,.72); box-shadow:6px 6px 0 var(--pixel-shadow); text-align:center; }
+.pixel-page-index::before { content:""; position:absolute; left:50%; top:10px; width:104px; height:84px; transform:translateX(-50%); background-image:url("pixel-kitchen-sprites.png"); background-repeat:no-repeat; background-size:300% 200%; image-rendering:pixelated; }
+.pixel-index-jars::before { top:20px; width:164px; height:52px; background-size:164px 109px; background-position:0 0; }
+.pixel-index-ingredients::before { background-position:100% 100%; }
+.pixel-index-pot::before { background-position:50% 100%; }
+
+.bottle-grid { align-items:stretch; }
+.project-bottle, .project-bottle:nth-child(2), .project-bottle:nth-child(3) { min-height:460px; padding:142px 24px 24px; border:2px solid var(--pixel-edge-soft); border-radius:16px; background:repeating-linear-gradient(to right,transparent 0 49px,rgba(113,130,110,.10) 49px 50px),repeating-linear-gradient(to bottom,transparent 0 49px,rgba(113,130,110,.10) 49px 50px),var(--sage-0); box-shadow:8px 8px 0 var(--pixel-shadow); }
+.project-bottle::before { left:50%; right:auto; top:12px; width:108px; height:108px; transform:translateX(-50%); border:0; border-radius:0; background-color:transparent; background-repeat:no-repeat; background-size:contain; background-position:center; image-rendering:pixelated; }
+.project-bottle:nth-child(1)::before { background-image:url("spice-jar-beige.png?v=2"); }
+.project-bottle:nth-child(2)::before { background-image:url("spice-jar-green.png?v=2"); }
+.project-bottle:nth-child(3)::before { background-image:url("spice-jar-red.png?v=2"); }
+.project-bottle::after { left:19%; right:19%; top:118px; bottom:auto; height:7px; z-index:0; border:2px solid #624b38; border-radius:2px; background:#9d7048; box-shadow:0 5px 0 rgba(63,67,53,.13); }
+.project-bottle:hover { transform:translate(-3px,-5px); box-shadow:11px 13px 0 var(--pixel-shadow); }
+.bottle-label { min-height:260px; padding:22px; border-width:2px; border-color:var(--pixel-edge-soft); border-radius:9px; box-shadow:4px 4px 0 var(--pixel-shadow); }
+.rack-board { height:14px; border:2px solid #66735f; border-radius:3px; background:#9d7048; box-shadow:0 7px 0 rgba(91,105,88,.16); }
+.small-work { position:relative; padding-left:74px; }
+.small-work::before { content:""; position:absolute; left:26px; top:30px; width:26px; height:26px; border:2px solid var(--pixel-edge); background:var(--sage-2); box-shadow:6px 0 0 var(--sage-3),0 6px 0 var(--sage-3),6px 6px 0 var(--sage-4); }
+
+.prep-board { border:3px solid #8b7455; border-radius:12px; background:repeating-linear-gradient(90deg,#e3d5bc 0 38px,#dac9aa 38px 40px); box-shadow:10px 10px 0 rgba(92,76,55,.12); }
+.ingredient-card, .ingredient-card:nth-child(2), .ingredient-card:nth-child(3) { min-height:410px; padding:30px; border-radius:12px; }
+.ingredient-card::after { display:none; }
+.ingredient-meta { min-height:45px; display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.produce-icon { flex:0 0 auto; display:block; position:static; width:42px; height:42px; margin:0; border:0; border-radius:0; background-color:transparent; background-image:url("ingredient-icons.png"); background-repeat:no-repeat; background-size:300% 100%; image-rendering:pixelated; opacity:1; transform:none; }
+.produce-icon::before, .produce-icon::after { display:none !important; }
+.produce-icon.peas, .produce-icon.tomato, .produce-icon.carrot { position:static; width:42px; height:42px; margin:0; border:0; border-radius:0; background-color:transparent; background-image:url("ingredient-icons.png"); background-repeat:no-repeat; background-size:300% 100%; opacity:1; transform:none; clip-path:none; }
+.produce-icon.peas { background-position:0 0; }
+.produce-icon.tomato { background-position:50% 0; }
+.produce-icon.carrot { background-position:100% 0; }
+.ingredient-card h2 { margin-top:8px; }
+.ingredient-card p { line-height:1.72; }
+.ingredient-card ul { margin:16px 0 0; line-height:1.75; }
+.ingredient-note { margin:18px 0 0; padding-top:14px; border-top:1px dashed rgba(82,99,86,.3); font-size:13px; }
+
+.wall-knife-set { width:220px; height:168px; padding:0; border:2px solid var(--pixel-edge-soft); border-radius:14px; background-color:var(--sage-0); background-image:url("pixel-kitchen-sprites.png"); background-size:300% 200%; background-position:0 100%; background-repeat:no-repeat; image-rendering:pixelated; box-shadow:6px 6px 0 var(--pixel-shadow); }
+.wall-knife-set::before, .wall-knife-set i { display:none; }
+.education-knife-card { grid-template-columns:150px 1fr; }
+.knife-illustration, .knife-illustration.short { width:104px; height:210px; border:0; border-radius:0; box-shadow:none; background-image:url("pixel-kitchen-sprites.png"); background-repeat:no-repeat; background-size:768px 512px; image-rendering:pixelated; }
+.knife-illustration.long { background-position:-100px -275px; }
+.knife-illustration.short { background-position:-165px -286px; }
+.knife-illustration::after { display:none; }
+
+.detail-aside { padding:158px 26px 28px; background-color:var(--sage-0); }
+.detail-aside::before { content:""; position:absolute; left:50%; top:18px; width:112px; height:112px; transform:translateX(-50%); background-size:contain; background-position:center; background-repeat:no-repeat; image-rendering:pixelated; }
+.detail-jar-one .detail-aside::before { background-image:url("spice-jar-beige.png?v=2"); }
+.detail-jar-two .detail-aside::before { background-image:url("spice-jar-green.png?v=2"); }
+.detail-jar-three .detail-aside::before { background-image:url("spice-jar-red.png?v=2"); }
+.detail-aside::after { content:"BACK LABEL"; position:absolute; left:24px; right:24px; top:137px; padding:4px 6px; border:1px solid var(--pixel-edge-soft); color:var(--sage-4); background:var(--paper); text-align:center; font-size:9px; letter-spacing:.16em; }
+.quote { border-left-width:5px; border-radius:0 9px 9px 0; box-shadow:5px 5px 0 var(--pixel-shadow); }
+.process-step { padding-left:76px; }
+.process-step::before { left:18px; top:18px; width:38px; height:38px; display:grid; place-items:center; border:2px solid var(--pixel-edge); border-radius:5px; background:var(--sage-1); box-shadow:3px 3px 0 var(--pixel-shadow); }
+.decision-table tr.recommended { box-shadow:inset 4px 0 0 var(--pixel-edge); }
+
+.recipe-step { border:2px solid var(--pixel-edge-soft); border-radius:38px 38px 12px 12px; box-shadow:5px 5px 0 var(--pixel-shadow); }
+.recipe-step span { border:2px solid var(--pixel-edge-soft); border-radius:6px; box-shadow:3px 3px 0 var(--pixel-shadow); }
+.drawer-card { background:rgba(255,255,255,.55); }
+
+@media (max-width:920px) {
+  .featured-grid { grid-template-columns:1fr; }
+  .feature-card { padding-right:34px; }
+  .feature-card.large { padding-bottom:34px; }
+}
+@media (max-width:640px) {
+  .pixel-page-index { justify-self:start; min-width:180px; min-height:132px; padding:82px 12px 12px; text-align:center; }
+  .pixel-page-index::before { left:50%; top:6px; width:88px; height:72px; transform:translateX(-50%); }
+  .pixel-index-jars::before { top:14px; width:144px; height:46px; background-size:144px 96px; }
+  .project-bottle, .project-bottle:nth-child(2), .project-bottle:nth-child(3) { min-height:410px; padding:126px 18px 18px; }
+  .project-bottle::before { width:92px; height:92px; }
+  .project-bottle::after { top:100px; }
+  .bottle-label { min-height:240px; }
+  .prep-board { padding:18px; }
+  .ingredient-card, .ingredient-card:nth-child(2), .ingredient-card:nth-child(3) { min-height:390px; }
+  .wall-knife-set { justify-self:start; width:220px; height:168px; }
+  .education-knife-card { grid-template-columns:90px 1fr; }
+  .knife-illustration, .knife-illustration.short { transform:scale(.78); transform-origin:center; }
+  .detail-aside { padding-top:132px; }
+  .detail-aside::before { width:112px; height:112px; }
+  .detail-aside::after { top:113px; }
+  .mini-spice-icon { width:24px; height:24px; }
+}
